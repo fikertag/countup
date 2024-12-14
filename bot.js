@@ -84,6 +84,6 @@ bot.onText(/\/help/, (msg) => {
 module.exports = (req, res) => {
   bodyParser.json()(req, res, () => {
     bot.processUpdate(req.body);
-    res.status(200).send();
+    res.status(200).send("hello");
   });
 };
