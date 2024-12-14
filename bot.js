@@ -4,7 +4,13 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const BOT_TOKEN = process.env.SECRET;
+if (!BOT_TOKEN) {
+  throw new Error("Telegram Bot Token not provided!");
+}
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
+
+const url = `https://${process.env.VERCEL_URL}/api/bot`;
+bot.setWebHook(url);
 
 // Define a command to accept total hours and start scheduling
 bot.onText(/\/schedule (\d+)/, (msg, match) => {
