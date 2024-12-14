@@ -9,7 +9,7 @@ if (!BOT_TOKEN) {
 }
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
 
-const url = `https://${process.env.VERCEL_URL}/api/bot`;
+const url = `https://${process.env.WEBHOOK_URL}/api/bot`;
 bot.setWebHook(url);
 
 // Define a command to accept total hours and start scheduling
