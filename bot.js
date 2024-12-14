@@ -1,5 +1,6 @@
 const TelegramBot = require("node-telegram-bot-api");
 const schedule = require("node-schedule");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const BOT_TOKEN = process.env.SECRET;
@@ -81,6 +82,8 @@ bot.onText(/\/help/, (msg) => {
 });
 
 module.exports = (req, res) => {
-  bot.processUpdate(req.body);
-  res.sendStatus(200);
+  bodyParser.json()(req, res, () => {
+    bot.processUpdate(req.body);
+    res.sendStatus(200);
+  });
 };

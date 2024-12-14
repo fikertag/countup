@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
     "node-schedule": "^2.1.1",
     "node-telegram-bot-api": "^0.66.0"
