@@ -81,5 +81,6 @@ bot.onText(/\/help/, (msg) => {
 });
 
 module.exports = (req, res) => {
-  bot.handleUpdate(req.body, res);
+  bot.processUpdate(req.body);
+  res.sendStatus(200);
 };
