@@ -79,3 +79,7 @@ bot.onText(/\/help/, (msg) => {
       "/help - Show this help message"
   );
 });
+
+module.exports = (req, res) => {
+  bot.handleUpdate(req.body, res);
+};
